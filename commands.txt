@@ -1,2 +1,8 @@
 STARTPROJECT:
 	docker-compose run web django-admin startproject <project_name> .
+
+RUN DOCKER:
+	docker-compose up
+
+RUN DOCKER AFTER CHANGES IN DOCKERFILE:
+	docker-compose up --build
