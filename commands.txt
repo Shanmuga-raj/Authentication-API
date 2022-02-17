@@ -6,3 +6,6 @@ RUN DOCKER:
 
 RUN DOCKER AFTER CHANGES IN DOCKERFILE:
 	docker-compose up --build
+
+STARTAPP:
+	docker-compose run web python manage.py startapp <app_name>
