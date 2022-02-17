@@ -1,0 +1,2 @@
+STARTPROJECT:
+	docker-compose run web django-admin startproject <project_name> .
