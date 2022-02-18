@@ -27,7 +27,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
 			password=validated_data['password']
 		)
 
-		print(validated_data)
 		return user
 
 	def update(self, instance, validated_data):
