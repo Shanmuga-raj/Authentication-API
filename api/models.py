@@ -7,6 +7,10 @@ from django.contrib.auth.models import (
 )
 
 
+def upload_to_path(instance, filename):
+	return u'web/mediafiles/%s/%s' % (str(instance.id), filename)
+
+
 # Create your models here.
 class UserProfileManager(BaseUserManager):
 
@@ -47,7 +51,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 	first_name = models.CharField(max_length=255)
 	last_name = models.CharField(max_length=255, blank=True, null=True)
 	date_of_birth = models.DateField(blank=True, null=True)
-	profile_picture = models.ImageField(blank=True, null=True)
+	profile_picture = models.ImageField(blank=True, null=True, upload_to=upload_to_path)
 	date_joined = models.DateTimeField(default=timezone.now)
 	is_active = models.BooleanField(default=True)
 	is_staff = models.BooleanField(default=False)

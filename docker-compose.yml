@@ -10,7 +10,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - static_volume:/app/web/staticfiles
+      - media_volume:/app/web/mediafiles
     env_file:
       - .env
     networks:
@@ -19,6 +20,7 @@ services:
       - db
 
   db:                                         # DB_HOST
+    restart: always
     image: postgres
     container_name: db
     expose:                                   # DB_PORT
@@ -39,3 +41,9 @@ networks:
   backend:
     name: backend-network
     driver: bridge
+
+
+volumes:
+  postgres-data:
+  static_volume:
+  media_volume:
